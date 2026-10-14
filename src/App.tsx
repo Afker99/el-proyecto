@@ -134,7 +134,7 @@ function reducer(state: InitialState, action: EmpAction) {
 }
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state] = useReducer(reducer, initialState);
 
   return (
     <main className={styles.main}>
