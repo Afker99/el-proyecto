@@ -1,6 +1,6 @@
 import styles from "./global.module.scss";
 
-import { useReducer } from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Employees from "./components/Employees/Employees";
