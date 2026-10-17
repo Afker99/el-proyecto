@@ -3,6 +3,8 @@
   border: 1px solid #dedede;
   border-radius: 1rem;
   padding: 2rem;
+  overflow: hidden;
+  
 
   font-size: 0.8rem;
   color: #555555;
@@ -27,13 +29,27 @@
 .table {
   width: 100%;
 
+  &Row {
+    padding: 1rem;
+    border-bottom: 1px solid #dedede;
+  }
+
   &Headers {
     font-size: 0.9rem;
+  }
+
+  &Employee {
+    display: flex;
+    align-items: center;
   }
 
   &EmpPic {
     width: 2.5rem;
     height: auto;
     border-radius: 100%;
+  }
+
+  &EmpName {
+    margin-left: 1rem;
   }
 }

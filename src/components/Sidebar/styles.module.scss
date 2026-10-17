@@ -1,12 +1,40 @@
 .sidebar {
-    flex: 0 1 15%;
-    border: 1px solid #dedede;
-    border-radius: 1rem;
-    padding: 1rem;
+  flex: 0 1 15%;
+  border: 1px solid #dedede;
+  border-radius: 1rem;
+  padding: 1rem;
 
-    &Heading {
-        font-weight: 600;
-        font-size: 1rem;
-        color: #1e1e1e;
+  &Heading {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1e1e1e;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  li {
+    list-style: none;
+    height: 2rem;
+    padding-left: 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: #f5f5f5;
     }
+  }
+
+  a:link,
+  a:visited {
+    color: #1e1e1e;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 }

@@ -1,3 +1,4 @@
+import { useEmployees } from "../../Contexts/EmployeeContext";
 import type Employee from "../../model/EmpInterface";
 import styles from "./styles.module.scss";
 
@@ -5,7 +6,8 @@ interface EmployeesProps {
   employees: Employee[];
 }
 
-function Employees({ employees }: EmployeesProps): React.JSX.Element {
+function Employees(): React.JSX.Element {
+  const { employees }: EmployeesProps = useEmployees();
   const theaders: string[] = ["Id", "Employee", "Role", "Tasks Assigned"];
   return (
     <div className={styles.employees}>
@@ -24,11 +26,15 @@ function Employees({ employees }: EmployeesProps): React.JSX.Element {
           </thead>
           <tbody>
             {employees.map((emp) => (
-              <tr key={emp.id}>
+              <tr key={emp.id} className={styles.tableRow}>
                 <td>{emp.id}</td>
-                <td className={styles.em}>
-                  <img className={styles.tableEmpPic} src={emp.imageUrl} alt={emp.name} />
-                  {emp.name}
+                <td className={styles.tableEmployee}>
+                  <img
+                    className={styles.tableEmpPic}
+                    src={emp.imageUrl}
+                    alt={emp.name}
+                  />
+                  <span className={styles.tableEmpName}>{emp.name}</span>
                 </td>
                 <td>{emp.role}</td>
                 <td>{emp.tasks.length}</td>
