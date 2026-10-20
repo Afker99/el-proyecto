@@ -3,5 +3,5 @@ export default interface Employee {
   name: string;
   role: string;
   imageUrl: string;
-  tasks: string[]
+  tasks: string[];
 }

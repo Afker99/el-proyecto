@@ -6,7 +6,9 @@ type EmployeesContextValue = {
   employees: Employee[];
 };
 
-const EmployeeContext = createContext<EmployeesContextValue | undefined>(undefined);
+const EmployeeContext = createContext<EmployeesContextValue | undefined>(
+  undefined,
+);
 
 interface InitialState {
   employees: Employee[];
@@ -33,7 +35,7 @@ const initialState: InitialState = {
       name: "Amina Patel",
       role: "Project Manager",
       imageUrl: "https://i.pravatar.cc/150?img=3",
-      tasks: ["Plan sprint schedule", "Update project timeline"],
+      tasks: ["Plan sprint schedule",],
     },
     {
       id: "4",
@@ -47,7 +49,7 @@ const initialState: InitialState = {
       name: "Sofia Garcia",
       role: "Backend Developer",
       imageUrl: "https://i.pravatar.cc/150?img=5",
-      tasks: ["Create employee API", "Add request validation"],
+      tasks: ["Create employee API", "Add request validation", "Check dependency alerts"],
     },
     {
       id: "6",
@@ -75,14 +77,14 @@ const initialState: InitialState = {
       name: "Zara Ahmed",
       role: "Content Strategist",
       imageUrl: "https://i.pravatar.cc/150?img=9",
-      tasks: ["Draft help center content", "Review product copy"],
+      tasks: ["Draft help center content", "Review product copy", "Check dependency alerts"],
     },
     {
       id: "10",
       name: "Oliver Smith",
       role: "UI Designer",
       imageUrl: "https://i.pravatar.cc/150?img=10",
-      tasks: ["Design settings page", "Update icon library"],
+      tasks: ["Design settings page", ],
     },
     {
       id: "11",
@@ -103,7 +105,7 @@ const initialState: InitialState = {
       name: "Isabella Rossi",
       role: "Marketing Specialist",
       imageUrl: "https://i.pravatar.cc/150?img=13",
-      tasks: ["Prepare launch campaign", "Update social media calendar"],
+      tasks: ["Prepare launch campaign"],
     },
     {
       id: "14",
@@ -117,7 +119,7 @@ const initialState: InitialState = {
       name: "Grace Wilson",
       role: "Customer Success Manager",
       imageUrl: "https://i.pravatar.cc/150?img=15",
-      tasks: ["Follow up with customers", "Prepare support trends summary"],
+      tasks: ["Follow up with customers", "Prepare support trends summary", "Check dependency alerts"],
     },
   ],
 };
@@ -131,11 +133,16 @@ function reducer(state: InitialState, action: EmpAction) {
   }
 }
 
-function EmployeeProvider({ children }: { children: ReactNode }): React.JSX.Element {
-
-    const [{employees}] = useReducer(reducer, initialState);
+function EmployeeProvider({
+  children,
+}: {
+  children: ReactNode;
+}): React.JSX.Element {
+  const [{ employees }] = useReducer(reducer, initialState);
   return (
-    <EmployeeContext.Provider value={{employees}}>{children}</EmployeeContext.Provider>
+    <EmployeeContext.Provider value={{ employees }}>
+      {children}
+    </EmployeeContext.Provider>
   );
 }
 
@@ -146,4 +153,4 @@ function useEmployees() {
   return context;
 }
 
-export {EmployeeProvider, useEmployees}
+export { EmployeeProvider, useEmployees };

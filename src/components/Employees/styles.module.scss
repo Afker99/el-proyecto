@@ -1,10 +1,10 @@
 .employees {
   flex: 1;
+  background-color: #f5f5f5;
   border: 1px solid #dedede;
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 1rem 2rem;
   overflow: hidden;
-  
 
   font-size: 0.8rem;
   color: #555555;
@@ -13,29 +13,59 @@
   flex-direction: column;
   gap: 1rem;
 
+  font-size: 0.8rem;
+  color: #6e6e6e;
+
   &Heading {
     font-weight: 600;
     font-size: 1rem;
     color: #1e1e1e;
     padding-bottom: 0.4rem;
   }
+}
 
-  &Count {
-    border-bottom: 1px solid #dedede;
-    padding-bottom: 1rem;
-  }
+header {
+  flex: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dedede;
+  padding: 0.75rem 0;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  overflow-y: scroll;
+  border: 1px solid #dedede;
+  border-radius: 0.5rem;
 }
 
 .table {
   width: 100%;
+  border-collapse: collapse;
 
-  &Row {
-    padding: 1rem;
+  &Cell {
+    padding: 0.75rem;
     border-bottom: 1px solid #dedede;
   }
 
+  &Row:last-child > &Cell {
+    border: 0;
+  }
+
   &Headers {
-    font-size: 0.9rem;
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    &Cell {
+      font-weight: 600;
+      padding: 1rem 0.75rem;
+      background-color: #f1f1f1;
+      border-bottom: 1px solid #dedede;
+      // border: 1px solid;
+    }
   }
 
   &Employee {
@@ -44,12 +74,59 @@
   }
 
   &EmpPic {
-    width: 2.5rem;
+    width: 2rem;
     height: auto;
     border-radius: 100%;
   }
 
   &EmpName {
     margin-left: 1rem;
+  }
+
+  &Status {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 99rem;
+
+    &Available {
+      color: rgb(73, 153, 73);
+      background-color: rgb(209, 241, 209);
+    }
+
+    &Unavailable {
+      color: rgb(198, 87, 87);
+      background-color: rgb(247, 222, 222);
+    }
+  }
+}
+
+.moreAction {
+  display: block;
+  width: 3px;
+  height: 3px;
+  background-color: #a1a0a0;
+  border-radius: 100rem;
+  margin-bottom: 2px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+
+footer {
+  flex: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #dedede;
+  padding: 0.75rem 0;
+
+  & > div:last-child {
+    display: flex;
+    gap: 0.5rem;
   }
 }
