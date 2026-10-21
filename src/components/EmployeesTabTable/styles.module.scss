@@ -17,6 +17,10 @@ main {
     border-bottom: 1px solid #dedede;
   }
 
+  &Row &Cell:last-child {
+    text-align: center;
+  }
+
   &Row:last-child > &Cell {
     border: 0;
   }
@@ -33,7 +37,13 @@ main {
       border-bottom: 1px solid #dedede;
       // border: 1px solid;
     }
+
+    tr &Cell:last-child {
+      text-align: center;
+    }
   }
+
+  
 
   &Employee {
     display: flex;
