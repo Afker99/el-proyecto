@@ -6,9 +6,8 @@ export default function Sidebar() :React.JSX.Element {
     <div className={styles.sidebar}>
         <h1 className={styles.sidebarHeading}>Project Management</h1>
         <ul>
-            <li><NavLink to={"/"}>General</NavLink></li>
-            <li><NavLink to={"employees"}>Employees</NavLink></li>
-            
+            <li className={styles.sidebarListItem}><NavLink to={"/"}>General</NavLink></li>
+            <li className={styles.sidebarListItem}><NavLink to={"employees"}>Employees</NavLink></li>
         </ul>
     </div>
   )

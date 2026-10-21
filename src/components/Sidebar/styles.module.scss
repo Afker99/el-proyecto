@@ -12,30 +12,30 @@
     margin-bottom: 1rem;
   }
 
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  li {
+  &ListItem {
     list-style: none;
-    height: 2rem;
-    padding-left: 0.5rem;
-    border-radius: 0.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
     transition: all 0.2s;
 
+    &:last-child {
+      margin-bottom: 0;
+    }
+
     &:hover {
-      background-color: #f5f5f5;
+      background-color: #edebeb;
     }
   }
+}
 
-  a:link,
-  a:visited {
-    color: #1e1e1e;
-    text-decoration: none;
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
+
+a:link,
+a:visited {
+  color: #1e1e1e;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }

@@ -2,13 +2,13 @@ import styles from "./global.module.scss";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Employees from "./components/Employees/Employees";
+import GeneralTab from "./Pages/GeneralTab/GeneralTab";
+import EmployeesTab from "./Pages/EmployeesTab/EmployeesTab";
+
 import Sidebar from "./components/Sidebar/Sidebar";
-import Homepage from "./components/Homepage/Homepage";
 
 import { EmployeeProvider } from "./Contexts/EmployeeContext";
-
-
+import Content from "./components/Content/Content";
 
 function App() {
   return (
@@ -16,10 +16,12 @@ function App() {
       <EmployeeProvider>
         <BrowserRouter>
           <Sidebar />
-          <Routes>
-            <Route index element={<Homepage />} />
-            <Route path="employees" element={<Employees />} />
-          </Routes>
+          <Content>
+            <Routes>
+              <Route index element={<GeneralTab />} />
+              <Route path="employees" element={<EmployeesTab />} />
+            </Routes>
+          </Content>
         </BrowserRouter>
       </EmployeeProvider>
     </main>

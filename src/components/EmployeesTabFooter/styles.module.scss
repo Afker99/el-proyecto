@@ -1,0 +1,15 @@
+footer {
+  flex: 0;
+  color: #6e6e6e;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #dedede;
+  padding: 0.75rem 0;
+
+  & > div:last-child {
+    display: flex;
+    gap: 0.5rem;
+  }
+}
