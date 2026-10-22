@@ -5,11 +5,13 @@ import type { ReactNode } from "react";
 interface ButtonProps {
   children: ReactNode;
   variant: "Primary" | "Secondary";
+  onClick?: () => void;
+  disabled?: true | false
 }
 
-function Button({ children, variant }: ButtonProps): React.JSX.Element {
+function Button({ children, variant, onClick, disabled }: ButtonProps): React.JSX.Element {
   return (
-    <button className={`${styles.btn} ${styles[`btn${variant}`]}`}>
+    <button className={`${styles.btn} ${styles[`btn${variant}`]}`} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );

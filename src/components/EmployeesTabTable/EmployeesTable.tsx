@@ -6,17 +6,30 @@ import type Employee from "../../model/EmployeeTypes/EmpInterface";
 
 interface EmployeesProps {
   employees: Employee[];
+  currentPage: number;
+  employeesPerPage: number;
 }
 
 function EmployeesTable(): React.JSX.Element {
-  const { employees }: EmployeesProps = useEmployees();
+  const {
+    employees,
+    currentPage,
+    employeesPerPage,
+  }: EmployeesProps = useEmployees();
   const theaders: string[] = [
+    "No",
     "Employee",
     "Role",
     "Tasks Assigned",
     "Status",
     "More Action",
   ];
+
+  const currentItems: Employee[] = employees.slice(
+    (currentPage - 1) * employeesPerPage,
+    currentPage * employeesPerPage,
+  );
+
   return (
     <main>
       <table className={styles.table}>
@@ -28,8 +41,9 @@ function EmployeesTable(): React.JSX.Element {
           </tr>
         </thead>
         <tbody>
-          {employees.map((emp) => (
+          {currentItems.map((emp) => (
             <tr key={emp.id} className={styles.tableRow}>
+              <td className={styles.tableCell}>{emp.id}</td>
               <td className={`${styles.tableEmployee} ${styles.tableCell}`}>
                 <img
                   className={styles.tableEmpPic}

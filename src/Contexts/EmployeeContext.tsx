@@ -1,35 +1,59 @@
 import { createContext, useContext, useReducer, type ReactNode } from "react";
+
 import type EmpAction from "../model/EmployeeTypes/EmpAction";
-import type Employee from "../model/EmployeeTypes/EmpInterface";
-import type  InitialStateEmployees  from "../model/EmployeeTypes/InitialStateEmployees";
+import type InitialStateEmployees from "../model/EmployeeTypes/InitialStateEmployees";
 
-import { initialState } from "../assets/sampleEmployees";
+import { samlpeEmployees } from "../assets/sampleEmployees";
 
-type EmployeesContextValue = {
-  employees: Employee[];
+const state: InitialStateEmployees = {
+  employees: samlpeEmployees,
+  employeesPerPage: 10,
+  currentPage: 1,
 };
 
-const EmployeeContext = createContext<EmployeesContextValue | undefined>(
+interface EmployeeContextValue extends InitialStateEmployees {
+  dispatch: React.Dispatch<EmpAction>;
+}
+
+const EmployeeContext = createContext<EmployeeContextValue | undefined>(
   undefined,
 );
 
 function reducer(state: InitialStateEmployees, action: EmpAction) {
   switch (action.type) {
-    case "setEmployees":
-      return { ...state, employees: action.payload };
+    case "prevPage":
+      return {
+        ...state,
+        currentPage: state.currentPage - 1,
+      };
+    case "nextPage":
+      return {
+        ...state,
+        currentPage: state.currentPage + 1,
+      };
     default:
       return state;
   }
 }
 
-function EmployeeProvider({
-  children,
-}: {
+interface employeeProviderProps {
   children: ReactNode;
-}): React.JSX.Element {
-  const [{ employees }] = useReducer(reducer, initialState);
+}
+
+function EmployeeProvider({ children }: employeeProviderProps) {
+  const [
+    { employees, employeesPerPage, currentPage },
+    dispatch,
+  ] = useReducer(reducer, state);
   return (
-    <EmployeeContext.Provider value={{ employees }}>
+    <EmployeeContext.Provider
+      value={{
+        employees,
+        employeesPerPage,
+        currentPage,
+        dispatch,
+      }}
+    >
       {children}
     </EmployeeContext.Provider>
   );
@@ -43,3 +67,5 @@ function useEmployees() {
 }
 
 export { EmployeeProvider, useEmployees };
+
+// Emp_Per_Page, currentPage, totalPages
