@@ -6,34 +6,45 @@
   padding: 1rem;
 
   &Heading {
+    color: #1e1e1e;
     font-weight: 600;
     font-size: 1rem;
-    color: #1e1e1e;
     margin-bottom: 1rem;
   }
 
+ 
+
   &ListItem {
     list-style: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    margin-bottom: 0.5rem;
-    transition: all 0.2s;
+
+    &Link {
+      color: #6e6e6e;
+      padding: 0.5rem;
+      cursor: pointer;
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: #edebeb;
+      }
+
+      &:global(.active) {
+        color: #545454;
+        background-color: #edebeb;
+        font-weight: 500;
+      }
+    }
 
     &:last-child {
       margin-bottom: 0;
     }
-
-    &:hover {
-      background-color: #edebeb;
-    }
   }
 }
 
-
 a:link,
 a:visited {
-  color: #1e1e1e;
+  color: #6e6e6e;
   text-decoration: none;
   height: 100%;
   display: flex;

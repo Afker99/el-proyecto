@@ -31,7 +31,7 @@ function EmployeesTable(): React.JSX.Element {
   );
 
   return (
-    <main>
+    <main className={styles.main}>
       <table className={styles.table}>
         <thead className={styles.tableHeaders}>
           <tr>
