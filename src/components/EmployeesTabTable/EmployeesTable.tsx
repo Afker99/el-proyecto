@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import Button from "../Button/Button";
 import { useEmployees } from "../../Contexts/EmployeeContext";
 import type Employee from "../../model/EmployeeTypes/EmpInterface";
+import { useState } from "react";
 
 interface EmployeesProps {
   employees: Employee[];
@@ -11,11 +12,11 @@ interface EmployeesProps {
 }
 
 function EmployeesTable(): React.JSX.Element {
-  const {
-    employees,
-    currentPage,
-    employeesPerPage,
-  }: EmployeesProps = useEmployees();
+  const { employees, currentPage, employeesPerPage }: EmployeesProps =
+    useEmployees();
+
+  const [openMenuId, setOpenMenuId] = useState<string | null>(null);
+
   const theaders: string[] = [
     "No",
     "Employee",
@@ -30,13 +31,19 @@ function EmployeesTable(): React.JSX.Element {
     currentPage * employeesPerPage,
   );
 
+  function handleClick(id: string) {
+    setOpenMenuId((currentId) => (currentId === id ? null : id));
+  }
+
   return (
     <main className={styles.main}>
       <table className={styles.table}>
         <thead className={styles.tableHeaders}>
           <tr>
             {theaders.map((header) => (
-              <th className={styles.tableHeadersCell}>{header}</th>
+              <th key={header} className={styles.tableHeadersCell}>
+                {header}
+              </th>
             ))}
           </tr>
         </thead>
@@ -70,11 +77,25 @@ function EmployeesTable(): React.JSX.Element {
                 )}
               </td>
               <td className={styles.tableCell}>
-                <Button variant="Secondary">
-                  <span className={styles.moreAction}></span>
-                  <span className={styles.moreAction}></span>
-                  <span className={styles.moreAction}></span>
+                <Button
+                  variant="Secondary"
+                  onClick={() => {
+                    handleClick(emp.id);
+                  }}
+                >
+                  <span className={styles.span}></span>
+                  <span className={styles.span}></span>
+                  <span className={styles.span}></span>
                 </Button>
+
+                <ul
+                  className={`${styles.moreAction} ${
+                    openMenuId === emp.id ? "" : styles.moreActionHidden
+                  }`}
+                >
+                  <li className={styles.moreActionOption} onClick={() => console.log("Edit")} >Edit</li>
+                  <li className={styles.moreActionOption} onClick={() => console.log("Delete")} >Delete</li>
+                </ul>
               </td>
             </tr>
           ))}
