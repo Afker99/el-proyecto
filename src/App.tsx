@@ -9,6 +9,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 
 import { EmployeeProvider } from "./Contexts/EmployeeContext";
 import Content from "./components/Content/Content";
+import PageNotFound from "./Pages/PageNotFound/PageNotFound";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Routes>
               <Route index element={<GeneralTab />} />
               <Route path="employees" element={<EmployeesTab />} />
+              <Route path="*" element={<PageNotFound />} />
             </Routes>
           </Content>
         </BrowserRouter>
