@@ -4,10 +4,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-p {
-  font-weight: 600;
-  font-size: 96px;
-  color: rgb(156, 26, 26);
+  &Text {
+    font-weight: 600;
+    font-size: 96px;
+    color: rgb(156, 26, 26);
+  }
 }

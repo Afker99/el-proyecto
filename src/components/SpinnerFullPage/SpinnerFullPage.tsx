@@ -2,7 +2,7 @@ import styles from './styles.module.scss'
 
 function SpinnerFullPage(){
     return <div className={styles.container}>
-        <p>Loading</p>
+        <p className={styles.containerText}>Loading</p>
     </div>
 }
 
