@@ -5,14 +5,16 @@
   border-radius: 1rem;
   padding: 1rem;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   &Heading {
     color: #1e1e1e;
     font-weight: 600;
     font-size: 1rem;
     margin-bottom: 1rem;
   }
-
- 
 
   &ListItem {
     list-style: none;
@@ -39,6 +41,28 @@
     &:last-child {
       margin-bottom: 0;
     }
+  }
+
+  &Metadata {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    padding-bottom: 0.5rem;
+
+    & p {
+      font-size: 0.6rem;
+      color: #a4a4a4;
+
+      & span {
+        font-weight: 600;
+      }
+    }
+  }
+
+  &Logo {
+    width: 75%;
+    
   }
 }
 
