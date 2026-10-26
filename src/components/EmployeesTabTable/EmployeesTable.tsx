@@ -83,9 +83,15 @@ function EmployeesTable(): React.JSX.Element {
                     handleClick(emp.id);
                   }}
                 >
-                  <span className={styles.span}></span>
-                  <span className={styles.span}></span>
-                  <span className={styles.span}></span>
+                  {openMenuId === emp.id ? (
+                    "X"
+                  ) : (
+                    <>
+                      <span className={styles.span}></span>
+                      <span className={styles.span}></span>
+                      <span className={styles.span}></span>
+                    </>
+                  )}
                 </Button>
 
                 <ul
@@ -93,8 +99,18 @@ function EmployeesTable(): React.JSX.Element {
                     openMenuId === emp.id ? "" : styles.moreActionHidden
                   }`}
                 >
-                  <li className={styles.moreActionOption} onClick={() => console.log("Edit")} >Edit</li>
-                  <li className={styles.moreActionOption} onClick={() => console.log("Delete")} >Delete</li>
+                  <li
+                    className={styles.moreActionOption}
+                    onClick={() => console.log("Edit")}
+                  >
+                    Edit
+                  </li>
+                  <li
+                    className={styles.moreActionOption}
+                    onClick={() => console.log("Delete")}
+                  >
+                    Delete
+                  </li>
                 </ul>
               </td>
             </tr>
