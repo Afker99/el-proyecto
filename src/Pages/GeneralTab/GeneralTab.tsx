@@ -2,7 +2,7 @@ import styles from "./styles.module.scss"
 
 function GeneralTab() {
   return (
-    <div className={styles.general}>GeneralTab</div>
+    <div className={styles.general}>General Tab</div>
   )
 }
 
