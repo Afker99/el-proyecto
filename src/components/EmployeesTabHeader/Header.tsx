@@ -1,8 +1,13 @@
+import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 
 import styles from "./styles.module.scss";
 
 function Header(): React.JSX.Element {
+  function handleClikck() {
+    console.log(location.pathname);
+  }
+
   return (
     <header>
       <div>
@@ -10,7 +15,9 @@ function Header(): React.JSX.Element {
         <p>View and manage all employees</p>
       </div>
       <div>
-        <Button variant="Primary">Add new Employess</Button>
+        <Link to="add-new-employee">
+          <Button variant="Primary">Add new Employee</Button>
+        </Link>
       </div>
     </header>
   );
