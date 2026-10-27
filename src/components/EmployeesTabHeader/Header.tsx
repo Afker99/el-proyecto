@@ -4,9 +4,7 @@ import Button from "../Button/Button";
 import styles from "./styles.module.scss";
 
 function Header(): React.JSX.Element {
-  function handleClikck() {
-    console.log(location.pathname);
-  }
+  
 
   return (
     <header>
