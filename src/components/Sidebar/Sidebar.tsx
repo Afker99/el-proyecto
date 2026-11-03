@@ -18,6 +18,11 @@ export default function Sidebar(): React.JSX.Element {
               Employees
             </NavLink>
           </li>
+          <li className={styles.sidebarListItem}>
+            <NavLink className={styles.sidebarListItemLink} to={"projects"}>
+              Projects
+            </NavLink>
+          </li>
         </ul>
       </div>
       <div className={styles.sidebarMetadata}>
