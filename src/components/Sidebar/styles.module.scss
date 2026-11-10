@@ -27,6 +27,10 @@
       margin-bottom: 0.5rem;
       transition: all 0.2s;
 
+      display: flex;
+      gap: 0.45rem;
+      align-items: center;
+
       &:hover {
         background-color: #edebeb;
       }
