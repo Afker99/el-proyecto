@@ -1,0 +1,103 @@
+.main {
+  flex: 1;
+  color: #6e6e6e;
+  font-size: 0.8rem;
+  width: 100%;
+  overflow-y: scroll;
+  border: 1px solid #dedede;
+  border-radius: 0.5rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  &Cell {
+    padding: 0.75rem;
+    border-bottom: 1px solid #dedede;
+    position: relative;
+  }
+
+  &Row &Cell:last-child {
+    text-align: center;
+  }
+
+  &Row:last-child > &Cell {
+    border: 0;
+  }
+
+  &Headers {
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    &Cell {
+      font-weight: 600;
+      padding: 1rem 0.75rem;
+      background-color: #f1f1f1;
+      border-bottom: 1px solid #dedede;
+    }
+  }
+
+  &Member {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &MemberPic {
+    width: 2rem;
+    height: auto;
+    object-fit: cover;
+    border-radius: 100%;
+    flex-shrink: 0;
+  }
+
+  &Status {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 99rem;
+
+    &Available {
+      color: rgb(73, 153, 73);
+      background-color: rgb(209, 241, 209);
+    }
+
+    &Unavailable {
+      color: rgb(198, 87, 87);
+      background-color: rgb(247, 222, 222);
+    }
+  }
+}
+
+.moreAction {
+  position: absolute;
+  top: 23%;
+  left: 35%;
+  background-color: #f5f5f5;
+  border: 1px solid #e2e2e2;
+  border-radius: 0.25rem;
+  z-index: 1;
+
+  &.moreActionHidden {
+    display: none;
+  }
+
+  &Option {
+    cursor: pointer;
+    list-style: none;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #dedede;
+    transition: all 0.5s;
+
+    &:hover {
+      background-color: #e9e9e9;
+    }
+
+    &:last-child {
+      border: 0;
+    }
+  }
+}

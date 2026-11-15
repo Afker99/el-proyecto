@@ -3,13 +3,15 @@ import styles from "./styles.module.scss";
 import logo from "../../assets/elproyecto.svg";
 
 import { House, FolderOpen, Users } from "lucide-react";
+import { useProjects } from "../../Contexts/ProjectContext";
 
 export default function Sidebar(): React.JSX.Element {
+  const { projects } = useProjects();
   return (
     <div className={styles.sidebar}>
       <div>
         <h1 className={styles.sidebarHeading}>Project Management</h1>
-        <ul>
+        <ul className={styles.sidebarList}>
           <li className={styles.sidebarListItem}>
             <NavLink className={styles.sidebarListItemLink} to={"/"}>
               <House size={16} />
@@ -21,9 +23,16 @@ export default function Sidebar(): React.JSX.Element {
               <FolderOpen size={16} />
               Projects
             </NavLink>
+            <ul className={styles.sidebarProjectList}>
+              {projects.map((project) => (
+                <li className={styles.sidebarProjectListItem}>
+                  {project.title}
+                </li>
+              ))}
+            </ul>
           </li>
           <li className={styles.sidebarListItem}>
-            <NavLink className={styles.sidebarListItemLink} to={"employees"}>
+            <NavLink className={styles.sidebarListItemLink} to={"team"}>
               <Users size={16} />
               Team
             </NavLink>

@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "GoogleSans", sans-serif;
   font-weight: 400;
 }
 
@@ -18,4 +18,18 @@
   font-size: 0.8rem;
 }
 
+@font-face {
+  font-family: "GoogleSans";
+  src: url("./assets/fonts/GoogleSans-VariableFont_GRAD\,opsz\,wght.ttf")
+    format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+}
 
+@font-face {
+  font-family: "GoogleSans";
+  src: url("./assets/fonts/GoogleSans-Italic-VariableFont_GRAD\,opsz\,wght.ttf")
+    format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+}

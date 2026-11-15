@@ -6,12 +6,23 @@ interface ButtonProps {
   children: ReactNode;
   variant: "Primary" | "Secondary";
   onClick?: () => void;
-  disabled?: true | false
+  disabled?: boolean;
+  hasIcon?: boolean;
 }
 
-function Button({ children, variant, onClick, disabled }: ButtonProps): React.JSX.Element {
+function Button({
+  children,
+  variant,
+  onClick,
+  disabled,
+  hasIcon,
+}: ButtonProps): React.JSX.Element {
   return (
-    <button className={`${styles.btn} ${styles[`btn${variant}`]}`} onClick={onClick} disabled={disabled}>
+    <button
+      className={`${styles.btn} ${styles[`btn${variant}`]} ${hasIcon ? styles.btnIcon : ""}`}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );
