@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 1rem;
+  border-bottom: 1px solid #dedede;
+}
+
+.form {
+  max-width: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  &Input {
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    border: 1px solid #dedede;
+
+    &:focus {
+      outline: 1px solid #101010;
+    }
+  }
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}

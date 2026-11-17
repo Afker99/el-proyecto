@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss"
 
-import Project from "../Project/Project";
+import ProjectCard from "../ProjectCard/ProjectCard";
 
 import { useProjects } from "../../Contexts/ProjectContext";
 
@@ -9,7 +9,7 @@ export default function ProjectsGrid() {
   return (
     <div className={styles.grid}>
       {projects.map((project) => (
-        <Project project={project} key={project.id} />
+        <ProjectCard project={project} key={project.id} />
       ))}
     </div>
   );

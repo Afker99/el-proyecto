@@ -9,7 +9,7 @@ interface ProjectProps {
   project: Project;
 }
 
-export default function Project({ project }: ProjectProps) {
+export default function ProjectCard({ project }: ProjectProps) {
   const { id, title, priority, assignTo, startDate, endDate, status } = project;
   const { teamMembers } = useTeam();
 
@@ -21,13 +21,14 @@ export default function Project({ project }: ProjectProps) {
 
   // calculate percentage
   const { tasks } = useTasks();
+  const percentageProject = status === "Completed" ? 100 : 0;
   const totalTasks = tasks.filter((task) => task.projectId === id).length;
   const completedTasks = tasks
     .filter((task) => task.projectId === id)
     .filter((task) => task.status === "Completed").length;
 
-  const percentageProject = status === "Completed" ? 100 : 0;
-  const percentageTasks = Math.round((completedTasks / totalTasks) * 100);
+  const percentageTasks =
+    totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
   const percentage = (percentageProject + percentageTasks) / 2;
 
   return (

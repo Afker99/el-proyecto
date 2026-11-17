@@ -5,8 +5,7 @@ import { useTeam } from "../../Contexts/TeamContext";
 import type TeamMember from "../../types/TeamMemberTypes/TeamMemberInterface";
 import { useState } from "react";
 import { EllipsisVertical, X } from "lucide-react";
-import { useProjects } from "../../Contexts/ProjectContext";
-import { useTasks } from "../../Contexts/TaskContext";
+import { getTasksLength } from "../../helper/getTasksLength";
 
 interface EmployeesProps {
   teamMembers: TeamMember[];
@@ -38,20 +37,6 @@ function TeamMembersTable(): React.JSX.Element {
 
   function handleClick(id: number) {
     setOpenMenuId((currentId) => (currentId === id ? null : id));
-  }
-
-  function getTasksLength(id: number): number {
-    let tasksCount: number = 0;
-    const { projects } = useProjects();
-    const { tasks } = useTasks();
-
-    projects.forEach((project) =>
-      project.assignTo === id ? tasksCount++ : tasksCount,
-    );
-
-    tasks.forEach((task) => (task.assignto === id ? tasksCount++ : tasksCount));
-
-    return tasksCount;
   }
 
   return (

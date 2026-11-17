@@ -57,15 +57,15 @@
       &State {
         content: "";
         height: 3px;
-        width: 10%;
-        background-color: green;
+        width: 0;
+        background-color: #1e1e1e;
       }
     }
   }
 
   &Assignee {
     p {
-      margin-top: 3rem;
+      margin-top: 4rem;
       margin-bottom: 0.35rem;
     }
 
