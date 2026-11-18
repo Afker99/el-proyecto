@@ -102,6 +102,13 @@ function TeamMembersTable(): React.JSX.Element {
                     )}
                   </Button>
 
+                  {openMenuId && (
+                    <div
+                      className={styles.overlay}
+                      onClick={() => setOpenMenuId(null)}
+                    ></div>
+                  )}
+
                   <ul
                     className={`${styles.moreAction} ${
                       openMenuId === member.id ? "" : styles.moreActionHidden
