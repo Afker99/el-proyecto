@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Button from "../Button/Button";
+import Modal from "../Modal/Modal";
 import styles from "./styles.module.scss";
 
 interface HeaderProps {
@@ -14,18 +16,29 @@ function Header({
   desc,
   buttonChild,
   buttonText,
-  onClick
+  onClick,
 }: HeaderProps): React.JSX.Element {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  function handleClick() {
+    if (onClick) onClick();
+    setIsModalOpen(true);
+  }
   return (
     <header>
       <div>
         <h2 className={styles.title}>{title}</h2>
         <p>{desc}</p>
       </div>
-      <Button variant="Primary" hasIcon={true} onClick={onClick}>
+      <Button variant="Primary" hasIcon={true} onClick={handleClick}>
         {buttonChild}
         <span>{buttonText}</span>
       </Button>
+
+      {isModalOpen && (
+        <Modal onClick={() => setIsModalOpen(false)}>
+          <div>Hola, soy un modal!</div>
+        </Modal>
+      )}
     </header>
   );
 }
