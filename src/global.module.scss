@@ -1,11 +1,13 @@
-
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "GoogleSans", sans-serif;
   font-weight: 400;
+}
+
+body {
+  overflow-y: hidden;
 }
 
 .main {
@@ -34,4 +36,11 @@
     format("woff2");
   font-weight: 100 900;
   font-style: italic;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1e1e1e;
+  // margin-bottom: 0.4rem;
 }

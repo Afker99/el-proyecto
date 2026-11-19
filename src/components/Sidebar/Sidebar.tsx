@@ -1,5 +1,7 @@
-import { NavLink } from "react-router-dom";
+import global from "../../global.module.scss";
 import styles from "./styles.module.scss";
+
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/elproyecto.svg";
 
 import { House, FolderOpen, Users } from "lucide-react";
@@ -10,7 +12,7 @@ export default function Sidebar(): React.JSX.Element {
   return (
     <div className={styles.sidebar}>
       <div>
-        <h1 className={styles.sidebarHeading}>Project Management</h1>
+        <h2 className={global.title}>Project Management</h2>
         <ul className={styles.sidebarList}>
           <li className={styles.sidebarListItem}>
             <NavLink className={styles.sidebarListItemLink} to={"/"}>

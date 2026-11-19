@@ -1,0 +1,23 @@
+@import "../../scss/variable.scss";
+
+.titleContainer {
+  padding: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10rem;
+  border-bottom: $border;
+}
+
+.form {
+  &Input {
+    width: 100%;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    border: 1px solid #dedede;
+
+    &:focus {
+      outline: 1px solid #101010;
+    }
+  }
+}

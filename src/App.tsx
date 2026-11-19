@@ -3,16 +3,16 @@ import styles from "./global.module.scss";
 import { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Content from "./components/Content/Content";
+import Home from "./Pages/Home/Home";
 import Projects from "./Pages/Projects/Projects";
-
-import Sidebar from "./components/Sidebar/Sidebar";
-import GeneralTab from "./Pages/GeneralTab/GeneralTab";
-import TeamMembersTab from "./Pages/TeamMembersTab/TeamMembersTab";
-import SpinnerFullPage from "./components/SpinnerFullPage/SpinnerFullPage";
-import PageNotFound from "./Pages/PageNotFound/PageNotFound";
-import ProjectsTab from "./components/ProjectsTab/ProjectsTab";
+import TeamMembers from "./Pages/TeamMembers/TeamMembers";
 import CreateProject from "./Pages/CreateProject/CreateProject";
+import PageNotFound from "./Pages/PageNotFound/PageNotFound";
+
+import Content from "./components/Content/Content";
+import Sidebar from "./components/Sidebar/Sidebar";
+import SpinnerFullPage from "./components/SpinnerFullPage/SpinnerFullPage";
+import ProjectsTab from "./components/ProjectsTab/ProjectsTab";
 
 import { TeamProvider } from "./Contexts/TeamContext";
 import { ProjectProvider } from "./Contexts/ProjectContext";
@@ -29,8 +29,8 @@ function App() {
                 <Sidebar />
                 <Content>
                   <Routes>
-                    <Route index element={<GeneralTab />} />
-                    <Route path="team" element={<TeamMembersTab />} />
+                    <Route index element={<Home />} />
+                    <Route path="team" element={<TeamMembers />} />
                     <Route path="projects" element={<Projects />}>
                       <Route index element={<ProjectsTab />} />
                       <Route path="new-project" element={<CreateProject />} />

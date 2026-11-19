@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 
 interface ModalProps {
-  children: React.JSX.Element;
+  children: React.JSX.Element | undefined;
   onClick: () => void;
 }
 

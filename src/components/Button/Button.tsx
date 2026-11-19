@@ -8,6 +8,8 @@ interface ButtonProps {
   onClick?: () => void;
   disabled?: boolean;
   hasIcon?: boolean;
+  size?: "Small" | "Normal";
+  round?: "Normal" | "Full";
 }
 
 function Button({
@@ -16,10 +18,17 @@ function Button({
   onClick,
   disabled,
   hasIcon,
+  size = "Normal",
+  round = "Normal",
 }: ButtonProps): React.JSX.Element {
   return (
     <button
-      className={`${styles.btn} ${styles[`btn${variant}`]} ${hasIcon ? styles.btnIcon : ""}`}
+      className={`
+        ${styles.btn} 
+        ${styles[`btn${variant}`]} 
+        ${size === "Normal" ? "" : styles[`btn${size}`]} 
+        ${round === "Normal" ? "" : styles[`btn${round}`]}
+        ${hasIcon ? styles.btnIcon : ""}`}
       onClick={onClick}
       disabled={disabled}
     >

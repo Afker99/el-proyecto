@@ -9,6 +9,7 @@ import Footer from "../../components/TeamTabFooter/Footer";
 import EmptyState from "../../components/EmptyState/EmptyState";
 
 import { useTeam } from "../../Contexts/TeamContext";
+import InviteMembers from "../../components/InviteMembers/InviteMembers";
 
 function TeamMembersTab(): React.JSX.Element {
   const { teamMembers } = useTeam();
@@ -36,6 +37,7 @@ function TeamMembersTab(): React.JSX.Element {
         desc="View and manage your all team members"
         buttonChild={<UserRoundPlus size={16} />}
         buttonText="Invite Members"
+        modal={<InviteMembers />}
       />
       <TeamMembersTable />
       <Footer />

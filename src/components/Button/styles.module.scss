@@ -38,6 +38,14 @@
     }
   }
 
+  &Small {
+    padding: 0.15rem;
+  }
+
+  &Full {
+    border-radius: 99px;
+  }
+
   &Icon {
     display: flex;
     align-items: center;
